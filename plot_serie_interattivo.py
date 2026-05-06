@@ -5,8 +5,10 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 
 
-INPUT_FILE = Path("serie_covid_new_per_idserie_senza_mar_apr_may_2020.csv")
-MONTHS_TO_REMOVE = {"Mar-20", "Apr-20", "May-20"}
+INPUT_FILE = Path("serie_covid_new_per_idserie_feb_mar_apr_2020_ricostruiti.csv")
+OUTPUT_DIR = Path("plot_serie_covid")
+OUTPUT_FILE = OUTPUT_DIR / "grafico_unico_52_serie_feb_mar_apr_2020_ricostruite.png"
+MONTHS_TO_HIGHLIGHT = {"Feb-20", "Mar-20", "Apr-20"}
 
 
 def clean_key(row, wanted_key):
@@ -22,9 +24,6 @@ def read_series(path):
         reader = csv.DictReader(csvfile)
         for row in reader:
             month = clean_key(row, "month")
-            if month in MONTHS_TO_REMOVE:
-                continue
-
             idserie = int(clean_key(row, "idserie"))
             grouped[idserie].append(
                 {
@@ -41,11 +40,12 @@ def read_series(path):
 
 
 def plot_all_series(grouped):
+    OUTPUT_DIR.mkdir(exist_ok=True)
     fig, ax = plt.subplots(figsize=(15, 8))
 
-    months = []
+    reference_months = []
     for rows in grouped.values():
-        months = [row["month"] for row in rows]
+        reference_months = [row["month"] for row in rows]
         break
 
     for idserie, rows in grouped.items():
@@ -54,7 +54,19 @@ def plot_all_series(grouped):
 
         ax.plot(months, values, linewidth=1.4, label=f"Serie {idserie:02d}")
 
-    ax.set_title("52 serie Covid senza marzo, aprile e maggio 2020")
+    highlighted_positions = [
+        index for index, month in enumerate(reference_months) if month in MONTHS_TO_HIGHLIGHT
+    ]
+    if highlighted_positions:
+        ax.axvspan(
+            min(highlighted_positions) - 0.5,
+            max(highlighted_positions) + 0.5,
+            color="gold",
+            alpha=0.18,
+            label="Mar-Apr-May 2020",
+        )
+
+    ax.set_title("52 serie Covid con Feb-Mar-Apr 2020 ricostruiti")
     ax.set_xlabel("Mese")
     ax.set_ylabel("Valore")
     ax.grid(True, alpha=0.3)
@@ -67,7 +79,9 @@ def plot_all_series(grouped):
         frameon=False,
     )
     fig.tight_layout()
+    fig.savefig(OUTPUT_FILE, dpi=150)
     plt.show()
+    
 
 
 def main():
@@ -76,6 +90,7 @@ def main():
         raise ValueError(f"Trovate {len(grouped)} serie invece di 52")
 
     plot_all_series(grouped)
+    print(f"Plot unico salvato in: {OUTPUT_FILE.resolve()}")
 
 
 if __name__ == "__main__":
