@@ -1,157 +1,157 @@
-idserie, month , periodo, actual, forecast, error, abs_error, ape_percent, model
-      0, Oct-22,      45,   23.0,    23.45, -0.45,      0.45,        1.96, holt_winters_additive
-      0, Nov-22,      46,   22.0,    22.78, -0.78,      0.78,        3.55, holt_winters_additive
-      0, Dec-22,      47,   24.0,    26.12, -2.12,      2.12,        8.83, holt_winters_additive
-      1, Oct-22,      45,   22.0,    21.56, 0.44 ,      0.44,        2.0 , holt_winters_additive
-      1, Nov-22,      46,   21.0,    21.22, -0.22,      0.22,        1.05, holt_winters_additive
-      1, Dec-22,      47,   23.0,    22.56, 0.44 ,      0.44,        1.91, holt_winters_additive
-      2, Oct-22,      45,   25.0,    25.4 , -0.4 ,      0.4 ,        1.6 , holt_winters_additive
-      2, Nov-22,      46,   26.0,    24.73, 1.27 ,      1.27,        4.88, holt_winters_additive
-      2, Dec-22,      47,   30.0,    27.73, 2.27 ,      2.27,        7.57, holt_winters_additive
-      3, Oct-22,      45,   19.0,    19.41, -0.41,      0.41,        2.16, holt_winters_additive
-      3, Nov-22,      46,   21.0,    19.08, 1.92 ,      1.92,        9.14, holt_winters_additive
-      3, Dec-22,      47,   21.0,    21.41, -0.41,      0.41,        1.95, holt_winters_additive
-      4, Oct-22,      45,   18.0,    17.5 , 0.5  ,      0.5 ,        2.78, holt_winters_additive
-      4, Nov-22,      46,   17.0,    16.84, 0.16 ,      0.16,        0.94, holt_winters_additive
-      4, Dec-22,      47,   18.0,    18.17, -0.17,      0.17,        0.94, holt_winters_additive
-      5, Oct-22,      45,   16.0,    15.2 , 0.8  ,      0.8 ,        5.0 , holt_winters_additive
-      5, Nov-22,      46,   15.0,    15.2 , -0.2 ,      0.2 ,        1.33, holt_winters_additive
-      5, Dec-22,      47,   19.0,    16.54, 2.46 ,      2.46,       12.95, holt_winters_additive
-      6, Oct-22,      45,   16.0,    15.71, 0.29 ,      0.29,        1.81, holt_winters_additive
-      6, Nov-22,      46,   15.0,    15.38, -0.38,      0.38,        2.53, holt_winters_additive
-      6, Dec-22,      47,   17.0,    17.71, -0.71,      0.71,        4.18, holt_winters_additive
-      7, Oct-22,      45,   13.0,    12.42, 0.58 ,      0.58,        4.46, holt_winters_additive
-      7, Nov-22,      46,   12.0,    12.42, -0.42,      0.42,        3.5 , holt_winters_additive
-      7, Dec-22,      47,   14.0,    13.09, 0.91 ,      0.91,        6.5 , holt_winters_additive
-      8, Oct-22,      45,   27.0,    26.39, 0.61 ,      0.61,        2.26, holt_winters_additive
-      8, Nov-22,      46,   26.0,    25.39, 0.61 ,      0.61,        2.35, holt_winters_additive
-      8, Dec-22,      47,   28.0,    27.73, 0.27 ,      0.27,        0.96, holt_winters_additive
-      9, Oct-22,      45,   15.0,    15.88, -0.88,      0.88,        5.87, holt_winters_additive
-      9, Nov-22,      46,   15.0,    15.22, -0.22,      0.22,        1.47, holt_winters_additive
-      9, Dec-22,      47,   17.0,    16.88, 0.12 ,      0.12,        0.71, holt_winters_additive
-     10, Oct-22,      45,   19.0,    19.65, -0.65,      0.65,        3.42, holt_winters_additive
-     10, Nov-22,      46,   19.0,    19.32, -0.32,      0.32,        1.68, holt_winters_additive
-     10, Dec-22,      47,   20.0,    20.32, -0.32,      0.32,        1.6 , holt_winters_additive
-     11, Oct-22,      45,   12.0,    11.8 , 0.2  ,      0.2 ,        1.67, holt_winters_additive
-     11, Nov-22,      46,   12.0,    11.47, 0.53 ,      0.53,        4.42, holt_winters_additive
-     11, Dec-22,      47,   13.0,    12.8 , 0.2  ,      0.2 ,        1.54, holt_winters_additive
-     12, Oct-22,      45,   22.0,    21.57, 0.43 ,      0.43,        1.95, holt_winters_additive
-     12, Nov-22,      46,   23.0,    22.24, 0.76 ,      0.76,        3.3 , holt_winters_additive
-     12, Dec-22,      47,   25.0,    25.57, -0.57,      0.57,        2.28, holt_winters_additive
-     13, Oct-22,      45,   26.0,    24.27, 1.73 ,      1.73,        6.65, holt_winters_additive
-     13, Nov-22,      46,   25.0,    23.27, 1.73 ,      1.73,        6.92, holt_winters_additive
-     13, Dec-22,      47,   28.0,    25.6 , 2.4  ,      2.4 ,        8.57, holt_winters_additive
-     14, Oct-22,      45,   25.0,    24.85, 0.15 ,      0.15,        0.6 , holt_winters_additive
-     14, Nov-22,      46,   25.0,    25.52, -0.52,      0.52,        2.08, holt_winters_additive
-     14, Dec-22,      47,   26.0,    27.52, -1.52,      1.52,        5.85, holt_winters_additive
-     15, Oct-22,      45,   21.0,    20.84, 0.16 ,      0.16,        0.76, holt_winters_additive
-     15, Nov-22,      46,   21.0,    20.5 , 0.5  ,      0.5 ,        2.38, holt_winters_additive
-     15, Dec-22,      47,   26.0,    23.17, 2.83 ,      2.83,       10.88, holt_winters_additive
-     16, Oct-22,      45,   18.0,    18.51, -0.51,      0.51,        2.83, holt_winters_additive
-     16, Nov-22,      46,   19.0,    18.18, 0.82 ,      0.82,        4.32, holt_winters_additive
-     16, Dec-22,      47,   21.0,    20.51, 0.49 ,      0.49,        2.33, holt_winters_additive
-     17, Oct-22,      45,   14.0,    12.81, 1.19 ,      1.19,        8.5 , holt_winters_additive
-     17, Nov-22,      46,   12.0,    12.48, -0.48,      0.48,        4.0 , holt_winters_additive
-     17, Dec-22,      47,   14.0,    14.48, -0.48,      0.48,        3.43, holt_winters_additive
-     18, Oct-22,      45,   15.0,    14.51, 0.49 ,      0.49,        3.27, holt_winters_additive
-     18, Nov-22,      46,   15.0,    14.84, 0.16 ,      0.16,        1.07, holt_winters_additive
-     18, Dec-22,      47,   17.0,    16.84, 0.16 ,      0.16,        0.94, holt_winters_additive
-     19, Oct-22,      45,   11.0,    10.32, 0.68 ,      0.68,        6.18, holt_winters_additive
-     19, Nov-22,      46,   10.0,     9.99, 0.01 ,      0.01,        0.1 , holt_winters_additive
-     19, Dec-22,      47,   12.0,    10.65, 1.35 ,      1.35,       11.25, holt_winters_additive
-     20, Oct-22,      45,   26.0,    25.31, 0.69 ,      0.69,        2.65, holt_winters_additive
-     20, Nov-22,      46,   25.0,    25.31, -0.31,      0.31,        1.24, holt_winters_additive
-     20, Dec-22,      47,   28.0,    27.31, 0.69 ,      0.69,        2.46, holt_winters_additive
-     21, Oct-22,      45,   22.0,    23.38, -1.38,      1.38,        6.27, holt_winters_additive
-     21, Nov-22,      46,   23.0,    24.38, -1.38,      1.38,        6.0 , holt_winters_additive
-     21, Dec-22,      47,   32.0,    28.38, 3.62 ,      3.62,       11.31, holt_winters_additive
-     22, Oct-22,      45,   31.0,    31.92, -0.92,      0.92,        2.97, holt_winters_additive
-     22, Nov-22,      46,   29.0,    32.26, -3.26,      3.26,       11.24, holt_winters_additive
-     22, Dec-22,      47,   33.0,    34.59, -1.59,      1.59,        4.82, holt_winters_additive
-     23, Oct-22,      45,   16.0,    16.16, -0.16,      0.16,        1.0 , holt_winters_additive
-     23, Nov-22,      46,   15.0,    16.16, -1.16,      1.16,        7.73, holt_winters_additive
-     23, Dec-22,      47,   19.0,    17.16, 1.84 ,      1.84,        9.68, holt_winters_additive
-     24, Oct-22,      45,   15.0,    14.59, 0.41 ,      0.41,        2.73, holt_winters_additive
-     24, Nov-22,      46,   15.0,    14.25, 0.75 ,      0.75,        5.0 , holt_winters_additive
-     24, Dec-22,      47,   17.0,    16.59, 0.41 ,      0.41,        2.41, holt_winters_additive
-     25, Oct-22,      45,   19.0,    18.31, 0.69 ,      0.69,        3.63, holt_winters_additive
-     25, Nov-22,      46,   19.0,    18.31, 0.69 ,      0.69,        3.63, holt_winters_additive
-     25, Dec-22,      47,   19.0,    19.98, -0.98,      0.98,        5.16, holt_winters_additive
-     26, Oct-22,      45,   14.0,    15.14, -1.14,      1.14,        8.14, holt_winters_additive
-     26, Nov-22,      46,   15.0,    14.48, 0.52 ,      0.52,        3.47, holt_winters_additive
-     26, Dec-22,      47,   17.0,    16.14, 0.86 ,      0.86,        5.06, holt_winters_additive
-     27, Oct-22,      45,   16.0,    17.0 , -1.0 ,      1.0 ,        6.25, holt_winters_additive
-     27, Nov-22,      46,   17.0,    16.67, 0.33 ,      0.33,        1.94, holt_winters_additive
-     27, Dec-22,      47,   19.0,    17.67, 1.33 ,      1.33,        7.0 , holt_winters_additive
-     28, Oct-22,      45,   10.0,    10.86, -0.86,      0.86,        8.6 , holt_winters_additive
-     28, Nov-22,      46,   10.0,    10.52, -0.52,      0.52,        5.2 , holt_winters_additive
-     28, Dec-22,      47,   11.0,    11.19, -0.19,      0.19,        1.73, holt_winters_additive
-     29, Oct-22,      45,   21.0,    20.82, 0.18 ,      0.18,        0.86, holt_winters_additive
-     29, Nov-22,      46,   22.0,    21.48, 0.52 ,      0.52,        2.36, holt_winters_additive
-     29, Dec-22,      47,   22.0,    24.15, -2.15,      2.15,        9.77, holt_winters_additive
-     30, Oct-22,      45,    9.0,     9.15, -0.15,      0.15,        1.67, holt_winters_additive
-     30, Nov-22,      46,    8.0,     8.81, -0.81,      0.81,       10.12, holt_winters_additive
-     30, Dec-22,      47,    8.0,     9.15, -1.15,      1.15,       14.37, holt_winters_additive
-     31, Oct-22,      45,   12.0,    12.29, -0.29,      0.29,        2.42, holt_winters_additive
-     31, Nov-22,      46,   12.0,    11.29, 0.71 ,      0.71,        5.92, holt_winters_additive
-     31, Dec-22,      47,   14.0,    12.62, 1.38 ,      1.38,        9.86, holt_winters_additive
-     32, Oct-22,      45,   14.0,    13.07, 0.93 ,      0.93,        6.64, holt_winters_additive
-     32, Nov-22,      46,   12.0,    13.07, -1.07,      1.07,        8.92, holt_winters_additive
-     32, Dec-22,      47,   14.0,    14.4 , -0.4 ,      0.4 ,        2.86, holt_winters_additive
-     33, Oct-22,      45,   22.0,    22.33, -0.33,      0.33,        1.5 , holt_winters_additive
-     33, Nov-22,      46,   22.0,    21.67, 0.33 ,      0.33,        1.5 , holt_winters_additive
-     33, Dec-22,      47,   27.0,    24.0 , 3.0  ,      3.0 ,       11.11, holt_winters_additive
-     34, Oct-22,      45,   11.0,    11.16, -0.16,      0.16,        1.45, holt_winters_additive
-     34, Nov-22,      46,   11.0,    10.83, 0.17 ,      0.17,        1.55, holt_winters_additive
-     34, Dec-22,      47,   11.0,    12.16, -1.16,      1.16,       10.55, holt_winters_additive
-     35, Oct-22,      45,   17.0,    16.39, 0.61 ,      0.61,        3.59, holt_winters_additive
-     35, Nov-22,      46,   17.0,    16.73, 0.27 ,      0.27,        1.59, holt_winters_additive
-     35, Dec-22,      47,   18.0,    17.73, 0.27 ,      0.27,        1.5 , holt_winters_additive
-     36, Oct-22,      45,   28.0,    29.82, -1.82,      1.82,        6.5 , holt_winters_additive
-     36, Nov-22,      46,   30.0,    29.16, 0.84 ,      0.84,        2.8 , holt_winters_additive
-     36, Dec-22,      47,   31.0,    30.49, 0.51 ,      0.51,        1.65, holt_winters_additive
-     37, Oct-22,      45,   23.0,    22.63, 0.37 ,      0.37,        1.61, holt_winters_additive
-     37, Nov-22,      46,   25.0,    22.96, 2.04 ,      2.04,        8.16, holt_winters_additive
-     37, Dec-22,      47,   26.0,    25.29, 0.71 ,      0.71,        2.73, holt_winters_additive
-     38, Oct-22,      45,   19.0,    17.29, 1.71 ,      1.71,        9.0 , holt_winters_additive
-     38, Nov-22,      46,   17.0,    18.29, -1.29,      1.29,        7.59, holt_winters_additive
-     38, Dec-22,      47,   23.0,    19.29, 3.71 ,      3.71,       16.13, holt_winters_additive
-     39, Oct-22,      45,   20.0,    19.79, 0.21 ,      0.21,        1.05, holt_winters_additive
-     39, Nov-22,      46,   22.0,    21.12, 0.88 ,      0.88,        4.0 , holt_winters_additive
-     39, Dec-22,      47,   22.0,    23.79, -1.79,      1.79,        8.14, holt_winters_additive
-     40, Oct-22,      45,   14.0,    12.86, 1.14 ,      1.14,        8.14, holt_winters_additive
-     40, Nov-22,      46,   13.0,    12.2 , 0.8  ,      0.8 ,        6.15, holt_winters_additive
-     40, Dec-22,      47,   15.0,    13.86, 1.14 ,      1.14,        7.6 , holt_winters_additive
-     41, Oct-22,      45,   10.0,    10.07, -0.07,      0.07,        0.7 , holt_winters_additive
-     41, Nov-22,      46,   10.0,     9.74, 0.26 ,      0.26,        2.6 , holt_winters_additive
-     41, Dec-22,      47,   11.0,    10.74, 0.26 ,      0.26,        2.36, holt_winters_additive
-     42, Oct-22,      45,   17.0,    15.57, 1.43 ,      1.43,        8.41, holt_winters_additive
-     42, Nov-22,      46,   16.0,    15.9 , 0.1  ,      0.1 ,        0.62, holt_winters_additive
-     42, Dec-22,      47,   17.0,    16.57, 0.43 ,      0.43,        2.53, holt_winters_additive
-     43, Oct-22,      45,   23.0,    22.29, 0.71 ,      0.71,        3.09, holt_winters_additive
-     43, Nov-22,      46,   22.0,    21.95, 0.05 ,      0.05,        0.23, holt_winters_additive
-     43, Dec-22,      47,   23.0,    22.95, 0.05 ,      0.05,        0.22, holt_winters_additive
-     44, Oct-22,      45,   13.0,    13.63, -0.63,      0.63,        4.85, holt_winters_additive
-     44, Nov-22,      46,   13.0,    13.3 , -0.3 ,      0.3 ,        2.31, holt_winters_additive
-     44, Dec-22,      47,   13.0,    14.3 , -1.3 ,      1.3 ,       10.0 , holt_winters_additive
-     45, Oct-22,      45,   15.0,    15.12, -0.12,      0.12,        0.8 , holt_winters_additive
-     45, Nov-22,      46,   15.0,    15.12, -0.12,      0.12,        0.8 , holt_winters_additive
-     45, Dec-22,      47,   16.0,    16.12, -0.12,      0.12,        0.75, holt_winters_additive
-     46, Oct-22,      45,   19.0,    18.56, 0.44 ,      0.44,        2.32, holt_winters_additive
-     46, Nov-22,      46,   18.0,    18.56, -0.56,      0.56,        3.11, holt_winters_additive
-     46, Dec-22,      47,   20.0,    19.22, 0.78 ,      0.78,        3.9 , holt_winters_additive
-     47, Oct-22,      45,    5.0,     4.92, 0.08 ,      0.08,        1.6 , holt_winters_additive
-     47, Nov-22,      46,    5.0,     4.92, 0.08 ,      0.08,        1.6 , holt_winters_additive
-     47, Dec-22,      47,    5.0,     4.92, 0.08 ,      0.08,        1.6 , holt_winters_additive
-     48, Oct-22,      45,   12.0,    12.54, -0.54,      0.54,        4.5 , holt_winters_additive
-     48, Nov-22,      46,   12.0,    12.54, -0.54,      0.54,        4.5 , holt_winters_additive
-     48, Dec-22,      47,   13.0,    13.54, -0.54,      0.54,        4.15, holt_winters_additive
-     49, Oct-22,      45,   18.0,    18.89, -0.89,      0.89,        4.94, holt_winters_additive
-     49, Nov-22,      46,   19.0,    19.22, -0.22,      0.22,        1.16, holt_winters_additive
-     49, Dec-22,      47,   20.0,    20.56, -0.56,      0.56,        2.8 , holt_winters_additive
-     50, Oct-22,      45,   25.0,    26.32, -1.32,      1.32,        5.28, holt_winters_additive
-     50, Nov-22,      46,   26.0,    26.99, -0.99,      0.99,        3.81, holt_winters_additive
-     50, Dec-22,      47,   29.0,    28.65, 0.35 ,      0.35,        1.21, holt_winters_additive
-     51, Oct-22,      45,   14.0,    14.84, -0.84,      0.84,        6.0 , holt_winters_additive
-     51, Nov-22,      46,   14.0,    14.5 , -0.5 ,      0.5 ,        3.57, holt_winters_additive
-     51, Dec-22,      47,   17.0,    15.5 , 1.5  ,      1.5 ,        8.82, holt_winters_additive
+idserie,month,periodo,actual,forecast,error,abs_error,ape_percent,model
+0,Oct-22,45,23.0,23.45,-0.45,0.45,1.96,holt_winters_additive
+0,Nov-22,46,22.0,22.78,-0.78,0.78,3.55,holt_winters_additive
+0,Dec-22,47,24.0,26.12,-2.12,2.12,8.83,holt_winters_additive
+1,Oct-22,45,22.0,21.56,0.44,0.44,2.0,holt_winters_additive
+1,Nov-22,46,21.0,21.22,-0.22,0.22,1.05,holt_winters_additive
+1,Dec-22,47,23.0,22.56,0.44,0.44,1.91,holt_winters_additive
+2,Oct-22,45,25.0,25.4,-0.4,0.4,1.6,holt_winters_additive
+2,Nov-22,46,26.0,24.73,1.27,1.27,4.88,holt_winters_additive
+2,Dec-22,47,30.0,27.73,2.27,2.27,7.57,holt_winters_additive
+3,Oct-22,45,19.0,19.41,-0.41,0.41,2.16,holt_winters_additive
+3,Nov-22,46,21.0,19.08,1.92,1.92,9.14,holt_winters_additive
+3,Dec-22,47,21.0,21.41,-0.41,0.41,1.95,holt_winters_additive
+4,Oct-22,45,18.0,17.5,0.5,0.5,2.78,holt_winters_additive
+4,Nov-22,46,17.0,16.84,0.16,0.16,0.94,holt_winters_additive
+4,Dec-22,47,18.0,18.17,-0.17,0.17,0.94,holt_winters_additive
+5,Oct-22,45,16.0,15.2,0.8,0.8,5.0,holt_winters_additive
+5,Nov-22,46,15.0,15.2,-0.2,0.2,1.33,holt_winters_additive
+5,Dec-22,47,19.0,16.54,2.46,2.46,12.95,holt_winters_additive
+6,Oct-22,45,16.0,15.71,0.29,0.29,1.81,holt_winters_additive
+6,Nov-22,46,15.0,15.38,-0.38,0.38,2.53,holt_winters_additive
+6,Dec-22,47,17.0,17.71,-0.71,0.71,4.18,holt_winters_additive
+7,Oct-22,45,13.0,12.42,0.58,0.58,4.46,holt_winters_additive
+7,Nov-22,46,12.0,12.42,-0.42,0.42,3.5,holt_winters_additive
+7,Dec-22,47,14.0,13.09,0.91,0.91,6.5,holt_winters_additive
+8,Oct-22,45,27.0,26.39,0.61,0.61,2.26,holt_winters_additive
+8,Nov-22,46,26.0,25.39,0.61,0.61,2.35,holt_winters_additive
+8,Dec-22,47,28.0,27.73,0.27,0.27,0.96,holt_winters_additive
+9,Oct-22,45,15.0,15.88,-0.88,0.88,5.87,holt_winters_additive
+9,Nov-22,46,15.0,15.22,-0.22,0.22,1.47,holt_winters_additive
+9,Dec-22,47,17.0,16.88,0.12,0.12,0.71,holt_winters_additive
+10,Oct-22,45,19.0,19.65,-0.65,0.65,3.42,holt_winters_additive
+10,Nov-22,46,19.0,19.32,-0.32,0.32,1.68,holt_winters_additive
+10,Dec-22,47,20.0,20.32,-0.32,0.32,1.6,holt_winters_additive
+11,Oct-22,45,12.0,11.8,0.2,0.2,1.67,holt_winters_additive
+11,Nov-22,46,12.0,11.47,0.53,0.53,4.42,holt_winters_additive
+11,Dec-22,47,13.0,12.8,0.2,0.2,1.54,holt_winters_additive
+12,Oct-22,45,22.0,21.57,0.43,0.43,1.95,holt_winters_additive
+12,Nov-22,46,23.0,22.24,0.76,0.76,3.3,holt_winters_additive
+12,Dec-22,47,25.0,25.57,-0.57,0.57,2.28,holt_winters_additive
+13,Oct-22,45,26.0,24.27,1.73,1.73,6.65,holt_winters_additive
+13,Nov-22,46,25.0,23.27,1.73,1.73,6.92,holt_winters_additive
+13,Dec-22,47,28.0,25.6,2.4,2.4,8.57,holt_winters_additive
+14,Oct-22,45,25.0,24.85,0.15,0.15,0.6,holt_winters_additive
+14,Nov-22,46,25.0,25.52,-0.52,0.52,2.08,holt_winters_additive
+14,Dec-22,47,26.0,27.52,-1.52,1.52,5.85,holt_winters_additive
+15,Oct-22,45,21.0,20.84,0.16,0.16,0.76,holt_winters_additive
+15,Nov-22,46,21.0,20.5,0.5,0.5,2.38,holt_winters_additive
+15,Dec-22,47,26.0,23.17,2.83,2.83,10.88,holt_winters_additive
+16,Oct-22,45,18.0,18.51,-0.51,0.51,2.83,holt_winters_additive
+16,Nov-22,46,19.0,18.18,0.82,0.82,4.32,holt_winters_additive
+16,Dec-22,47,21.0,20.51,0.49,0.49,2.33,holt_winters_additive
+17,Oct-22,45,14.0,12.81,1.19,1.19,8.5,holt_winters_additive
+17,Nov-22,46,12.0,12.48,-0.48,0.48,4.0,holt_winters_additive
+17,Dec-22,47,14.0,14.48,-0.48,0.48,3.43,holt_winters_additive
+18,Oct-22,45,15.0,14.51,0.49,0.49,3.27,holt_winters_additive
+18,Nov-22,46,15.0,14.84,0.16,0.16,1.07,holt_winters_additive
+18,Dec-22,47,17.0,16.84,0.16,0.16,0.94,holt_winters_additive
+19,Oct-22,45,11.0,10.32,0.68,0.68,6.18,holt_winters_additive
+19,Nov-22,46,10.0,9.99,0.01,0.01,0.1,holt_winters_additive
+19,Dec-22,47,12.0,10.65,1.35,1.35,11.25,holt_winters_additive
+20,Oct-22,45,26.0,25.31,0.69,0.69,2.65,holt_winters_additive
+20,Nov-22,46,25.0,25.31,-0.31,0.31,1.24,holt_winters_additive
+20,Dec-22,47,28.0,27.31,0.69,0.69,2.46,holt_winters_additive
+21,Oct-22,45,22.0,23.38,-1.38,1.38,6.27,holt_winters_additive
+21,Nov-22,46,23.0,24.38,-1.38,1.38,6.0,holt_winters_additive
+21,Dec-22,47,32.0,28.38,3.62,3.62,11.31,holt_winters_additive
+22,Oct-22,45,31.0,31.92,-0.92,0.92,2.97,holt_winters_additive
+22,Nov-22,46,29.0,32.26,-3.26,3.26,11.24,holt_winters_additive
+22,Dec-22,47,33.0,34.59,-1.59,1.59,4.82,holt_winters_additive
+23,Oct-22,45,16.0,16.16,-0.16,0.16,1.0,holt_winters_additive
+23,Nov-22,46,15.0,16.16,-1.16,1.16,7.73,holt_winters_additive
+23,Dec-22,47,19.0,17.16,1.84,1.84,9.68,holt_winters_additive
+24,Oct-22,45,15.0,14.59,0.41,0.41,2.73,holt_winters_additive
+24,Nov-22,46,15.0,14.25,0.75,0.75,5.0,holt_winters_additive
+24,Dec-22,47,17.0,16.59,0.41,0.41,2.41,holt_winters_additive
+25,Oct-22,45,19.0,18.31,0.69,0.69,3.63,holt_winters_additive
+25,Nov-22,46,19.0,18.31,0.69,0.69,3.63,holt_winters_additive
+25,Dec-22,47,19.0,19.98,-0.98,0.98,5.16,holt_winters_additive
+26,Oct-22,45,14.0,15.14,-1.14,1.14,8.14,holt_winters_additive
+26,Nov-22,46,15.0,14.48,0.52,0.52,3.47,holt_winters_additive
+26,Dec-22,47,17.0,16.14,0.86,0.86,5.06,holt_winters_additive
+27,Oct-22,45,16.0,17.0,-1.0,1.0,6.25,holt_winters_additive
+27,Nov-22,46,17.0,16.67,0.33,0.33,1.94,holt_winters_additive
+27,Dec-22,47,19.0,17.67,1.33,1.33,7.0,holt_winters_additive
+28,Oct-22,45,10.0,10.86,-0.86,0.86,8.6,holt_winters_additive
+28,Nov-22,46,10.0,10.52,-0.52,0.52,5.2,holt_winters_additive
+28,Dec-22,47,11.0,11.19,-0.19,0.19,1.73,holt_winters_additive
+29,Oct-22,45,21.0,20.82,0.18,0.18,0.86,holt_winters_additive
+29,Nov-22,46,22.0,21.48,0.52,0.52,2.36,holt_winters_additive
+29,Dec-22,47,22.0,24.15,-2.15,2.15,9.77,holt_winters_additive
+30,Oct-22,45,9.0,9.15,-0.15,0.15,1.67,holt_winters_additive
+30,Nov-22,46,8.0,8.81,-0.81,0.81,10.12,holt_winters_additive
+30,Dec-22,47,8.0,9.15,-1.15,1.15,14.37,holt_winters_additive
+31,Oct-22,45,12.0,12.29,-0.29,0.29,2.42,holt_winters_additive
+31,Nov-22,46,12.0,11.29,0.71,0.71,5.92,holt_winters_additive
+31,Dec-22,47,14.0,12.62,1.38,1.38,9.86,holt_winters_additive
+32,Oct-22,45,14.0,13.07,0.93,0.93,6.64,holt_winters_additive
+32,Nov-22,46,12.0,13.07,-1.07,1.07,8.92,holt_winters_additive
+32,Dec-22,47,14.0,14.4,-0.4,0.4,2.86,holt_winters_additive
+33,Oct-22,45,22.0,22.33,-0.33,0.33,1.5,holt_winters_additive
+33,Nov-22,46,22.0,21.67,0.33,0.33,1.5,holt_winters_additive
+33,Dec-22,47,27.0,24.0,3.0,3.0,11.11,holt_winters_additive
+34,Oct-22,45,11.0,11.16,-0.16,0.16,1.45,holt_winters_additive
+34,Nov-22,46,11.0,10.83,0.17,0.17,1.55,holt_winters_additive
+34,Dec-22,47,11.0,12.16,-1.16,1.16,10.55,holt_winters_additive
+35,Oct-22,45,17.0,16.39,0.61,0.61,3.59,holt_winters_additive
+35,Nov-22,46,17.0,16.73,0.27,0.27,1.59,holt_winters_additive
+35,Dec-22,47,18.0,17.73,0.27,0.27,1.5,holt_winters_additive
+36,Oct-22,45,28.0,29.82,-1.82,1.82,6.5,holt_winters_additive
+36,Nov-22,46,30.0,29.16,0.84,0.84,2.8,holt_winters_additive
+36,Dec-22,47,31.0,30.49,0.51,0.51,1.65,holt_winters_additive
+37,Oct-22,45,23.0,22.63,0.37,0.37,1.61,holt_winters_additive
+37,Nov-22,46,25.0,22.96,2.04,2.04,8.16,holt_winters_additive
+37,Dec-22,47,26.0,25.29,0.71,0.71,2.73,holt_winters_additive
+38,Oct-22,45,19.0,17.29,1.71,1.71,9.0,holt_winters_additive
+38,Nov-22,46,17.0,18.29,-1.29,1.29,7.59,holt_winters_additive
+38,Dec-22,47,23.0,19.29,3.71,3.71,16.13,holt_winters_additive
+39,Oct-22,45,20.0,19.79,0.21,0.21,1.05,holt_winters_additive
+39,Nov-22,46,22.0,21.12,0.88,0.88,4.0,holt_winters_additive
+39,Dec-22,47,22.0,23.79,-1.79,1.79,8.14,holt_winters_additive
+40,Oct-22,45,14.0,12.86,1.14,1.14,8.14,holt_winters_additive
+40,Nov-22,46,13.0,12.2,0.8,0.8,6.15,holt_winters_additive
+40,Dec-22,47,15.0,13.86,1.14,1.14,7.6,holt_winters_additive
+41,Oct-22,45,10.0,10.07,-0.07,0.07,0.7,holt_winters_additive
+41,Nov-22,46,10.0,9.74,0.26,0.26,2.6,holt_winters_additive
+41,Dec-22,47,11.0,10.74,0.26,0.26,2.36,holt_winters_additive
+42,Oct-22,45,17.0,15.57,1.43,1.43,8.41,holt_winters_additive
+42,Nov-22,46,16.0,15.9,0.1,0.1,0.62,holt_winters_additive
+42,Dec-22,47,17.0,16.57,0.43,0.43,2.53,holt_winters_additive
+43,Oct-22,45,23.0,22.29,0.71,0.71,3.09,holt_winters_additive
+43,Nov-22,46,22.0,21.95,0.05,0.05,0.23,holt_winters_additive
+43,Dec-22,47,23.0,22.95,0.05,0.05,0.22,holt_winters_additive
+44,Oct-22,45,13.0,13.63,-0.63,0.63,4.85,holt_winters_additive
+44,Nov-22,46,13.0,13.3,-0.3,0.3,2.31,holt_winters_additive
+44,Dec-22,47,13.0,14.3,-1.3,1.3,10.0,holt_winters_additive
+45,Oct-22,45,15.0,15.12,-0.12,0.12,0.8,holt_winters_additive
+45,Nov-22,46,15.0,15.12,-0.12,0.12,0.8,holt_winters_additive
+45,Dec-22,47,16.0,16.12,-0.12,0.12,0.75,holt_winters_additive
+46,Oct-22,45,19.0,18.56,0.44,0.44,2.32,holt_winters_additive
+46,Nov-22,46,18.0,18.56,-0.56,0.56,3.11,holt_winters_additive
+46,Dec-22,47,20.0,19.22,0.78,0.78,3.9,holt_winters_additive
+47,Oct-22,45,5.0,4.92,0.08,0.08,1.6,holt_winters_additive
+47,Nov-22,46,5.0,4.92,0.08,0.08,1.6,holt_winters_additive
+47,Dec-22,47,5.0,4.92,0.08,0.08,1.6,holt_winters_additive
+48,Oct-22,45,12.0,12.54,-0.54,0.54,4.5,holt_winters_additive
+48,Nov-22,46,12.0,12.54,-0.54,0.54,4.5,holt_winters_additive
+48,Dec-22,47,13.0,13.54,-0.54,0.54,4.15,holt_winters_additive
+49,Oct-22,45,18.0,18.89,-0.89,0.89,4.94,holt_winters_additive
+49,Nov-22,46,19.0,19.22,-0.22,0.22,1.16,holt_winters_additive
+49,Dec-22,47,20.0,20.56,-0.56,0.56,2.8,holt_winters_additive
+50,Oct-22,45,25.0,26.32,-1.32,1.32,5.28,holt_winters_additive
+50,Nov-22,46,26.0,26.99,-0.99,0.99,3.81,holt_winters_additive
+50,Dec-22,47,29.0,28.65,0.35,0.35,1.21,holt_winters_additive
+51,Oct-22,45,14.0,14.84,-0.84,0.84,6.0,holt_winters_additive
+51,Nov-22,46,14.0,14.5,-0.5,0.5,3.57,holt_winters_additive
+51,Dec-22,47,17.0,15.5,1.5,1.5,8.82,holt_winters_additive

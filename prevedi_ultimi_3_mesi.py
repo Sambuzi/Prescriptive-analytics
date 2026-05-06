@@ -2,17 +2,11 @@ from collections import defaultdict
 import csv
 from pathlib import Path
 
-import matplotlib
-
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from statsmodels.tsa.holtwinters import ExponentialSmoothing
 
 
 INPUT_FILE = Path("serie_covid_new_per_idserie_feb_mar_apr_2020_ricostruiti.csv")
-FORECAST_FILE = Path("previsioni_ultimi_3_mesi_per_serie.csv")
-METRICS_FILE = Path("metriche_previsioni_ultimi_3_mesi.csv")
-PLOT_FILE = Path("plot_serie_covid") / "previsioni_ultimi_3_mesi_52_serie.png"
 TEST_MONTHS = 3
 SEASONAL_PERIODS = 12
 
@@ -93,53 +87,7 @@ def forecast_series(rows):
     return forecast_rows
 
 
-def write_forecasts(rows):
-    fieldnames = [
-        "idserie",
-        "month",
-        "periodo",
-        "actual",
-        "forecast",
-        "error",
-        "abs_error",
-        "ape_percent",
-        "model",
-    ]
-    with FORECAST_FILE.open("w", newline="", encoding="utf-8") as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(rows)
-
-
-def write_metrics(forecast_rows):
-    metrics = []
-    grouped = defaultdict(list)
-    for row in forecast_rows:
-        grouped[row["idserie"]].append(row)
-
-    for idserie, rows in sorted(grouped.items()):
-        mae = sum(row["abs_error"] for row in rows) / len(rows)
-        mape_values = [row["ape_percent"] for row in rows if row["ape_percent"] != ""]
-        mape = sum(mape_values) / len(mape_values) if mape_values else ""
-        metrics.append(
-            {
-                "idserie": idserie,
-                "mae": round(mae, 2),
-                "mape_percent": round(mape, 2) if mape != "" else "",
-                "model": rows[0]["model"],
-            }
-        )
-
-    with METRICS_FILE.open("w", newline="", encoding="utf-8") as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=["idserie", "mae", "mape_percent", "model"])
-        writer.writeheader()
-        writer.writerows(metrics)
-
-    return metrics
-
-
 def plot_forecasts(series, forecast_rows):
-    PLOT_FILE.parent.mkdir(exist_ok=True)
     forecast_by_series = defaultdict(list)
     for row in forecast_rows:
         forecast_by_series[row["idserie"]].append(row)
@@ -162,8 +110,7 @@ def plot_forecasts(series, forecast_rows):
     ax.grid(True, alpha=0.3)
     ax.tick_params(axis="x", rotation=75, labelsize=8)
     fig.tight_layout()
-    fig.savefig(PLOT_FILE, dpi=150)
-    plt.close(fig)
+    plt.show()
 
 
 def main():
@@ -175,8 +122,6 @@ def main():
     for rows in series.values():
         forecast_rows.extend(forecast_series(rows))
 
-    metrics = write_metrics(forecast_rows)
-    write_forecasts(forecast_rows)
     plot_forecasts(series, forecast_rows)
 
     overall_mae = sum(row["abs_error"] for row in forecast_rows) / len(forecast_rows)
@@ -186,9 +131,6 @@ def main():
     print(f"Previsioni create: {len(forecast_rows)}")
     print(f"MAE medio: {overall_mae:.2f}")
     print(f"MAPE medio: {overall_mape:.2f}%")
-    print(f"File previsioni: {FORECAST_FILE.resolve()}")
-    print(f"File metriche: {METRICS_FILE.resolve()}")
-    print(f"Plot: {PLOT_FILE.resolve()}")
 
 
 if __name__ == "__main__":
