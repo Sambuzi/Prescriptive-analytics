@@ -2,13 +2,20 @@ from collections import defaultdict
 import csv
 from pathlib import Path
 
+import matplotlib
+
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from statsmodels.tsa.holtwinters import ExponentialSmoothing
 
 
 INPUT_FILE = Path("serie_covid_new_per_idserie_feb_mar_apr_2020_ricostruiti.csv")
+DECEMBER_FORECASTS_FILE = Path("previsioni_dicembre_primi_20_diviso_5.csv")
+FORECAST_PLOT_FILE = Path("previsioni_ultimi_3_mesi.png")
 TEST_MONTHS = 3
 SEASONAL_PERIODS = 12
+DECEMBER_MONTH = "Dec-22"
+DECEMBER_LIMIT = 20
 
 
 def clean_value(row, wanted_key):
@@ -110,7 +117,50 @@ def plot_forecasts(series, forecast_rows):
     ax.grid(True, alpha=0.3)
     ax.tick_params(axis="x", rotation=75, labelsize=8)
     fig.tight_layout()
-    plt.show()
+    fig.savefig(FORECAST_PLOT_FILE, dpi=180)
+    plt.close(fig)
+
+
+def write_december_forecasts_divided_by_5(forecast_rows):
+    december_rows = [
+        row
+        for row in forecast_rows
+        if row["month"] == DECEMBER_MONTH
+    ][:DECEMBER_LIMIT]
+    output_rows = []
+
+    for row in december_rows:
+        output_rows.append(
+            {
+                "idserie": row["idserie"],
+                "month": row["month"],
+                "periodo": row["periodo"],
+                "forecast_dicembre": row["forecast"],
+                "forecast_diviso_5": round(row["forecast"] / 5, 2),
+            }
+        )
+
+    totale_forecast_diviso_5 = round(
+        sum(row["forecast_diviso_5"] for row in output_rows),
+        2,
+    )
+
+    fieldnames = ["idserie", "month", "periodo", "forecast_dicembre", "forecast_diviso_5"]
+    with DECEMBER_FORECASTS_FILE.open("w", newline="", encoding="utf-8") as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(output_rows)
+        writer.writerow(
+            {
+                "idserie": "TOTALE",
+                "month": DECEMBER_MONTH,
+                "periodo": "",
+                "forecast_dicembre": "",
+                "forecast_diviso_5": totale_forecast_diviso_5,
+            }
+        )
+
+    return len(output_rows), totale_forecast_diviso_5
 
 
 def main():
@@ -122,6 +172,8 @@ def main():
     for rows in series.values():
         forecast_rows.extend(forecast_series(rows))
 
+    december_rows_count, totale_forecast_diviso_5 = write_december_forecasts_divided_by_5(forecast_rows)
+
     plot_forecasts(series, forecast_rows)
 
     overall_mae = sum(row["abs_error"] for row in forecast_rows) / len(forecast_rows)
@@ -129,6 +181,8 @@ def main():
 
     print(f"Serie previste: {len(series)}")
     print(f"Previsioni create: {len(forecast_rows)}")
+    print(f"Previsioni di dicembre salvate: {december_rows_count} in {DECEMBER_FORECASTS_FILE}")
+    print(f"Somma forecast dicembre divisi per 5: {totale_forecast_diviso_5:.2f}")
     print(f"MAE medio: {overall_mae:.2f}")
     print(f"MAPE medio: {overall_mape:.2f}%")
 
