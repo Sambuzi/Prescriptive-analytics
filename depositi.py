@@ -73,14 +73,68 @@ if __name__ == "__main__":
 
     sum = np.ceil(sum)
 
-    plt.figure()
-    plt.scatter(x=scatter['x'], y=scatter['y'], )
-
     print(type(richieste_array[0]))
 
     sol, _ = initial_solution(distanze_depositi_df, richieste_array, 10, 50)
 
     print(sol)
+
+    fig, ax = plt.subplots(figsize=(10, 8))
+    depot = scatter.iloc[DISTANZE_DEPOSITI_INDEX]
+    customers = scatter.drop(scatter.index[DISTANZE_DEPOSITI_INDEX])
+    colors = plt.get_cmap('tab10', len(sol))
+
+    ax.scatter(
+        x=customers['x'],
+        y=customers['y'],
+        color='lightgray',
+        edgecolors='black',
+        s=70,
+        label='Clienti',
+        zorder=2,
+    )
+    ax.scatter(
+        x=[depot['x']],
+        y=[depot['y']],
+        color='red',
+        marker='s',
+        edgecolors='black',
+        s=130,
+        label='Deposito',
+        zorder=4,
+    )
+
+    for truck_index, route in enumerate(sol):
+        if len(route) <= 2:
+            continue
+
+        route_points = scatter.iloc[route]
+        ax.plot(
+            route_points['x'],
+            route_points['y'],
+            color=colors(truck_index),
+            linewidth=2,
+            marker='o',
+            markersize=5,
+            label=f'Camion {truck_index + 1}',
+            zorder=3,
+        )
+
+    for _, row in scatter.iterrows():
+        ax.annotate(
+            int(row['node_id']),
+            (row['x'], row['y']),
+            textcoords='offset points',
+            xytext=(4, 4),
+            fontsize=8,
+        )
+
+    ax.set_title('Rotte iniziali dei camion')
+    ax.set_xlabel('x')
+    ax.set_ylabel('y')
+    ax.grid(True, alpha=0.25)
+    ax.legend(loc='center left', bbox_to_anchor=(1.02, 0.5))
+    fig.tight_layout()
 
     plt.show(block=True)
 
