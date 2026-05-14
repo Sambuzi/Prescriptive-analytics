@@ -5,7 +5,6 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from goto import goto, label
 
 
 if __package__ is None or __package__ == "":
@@ -129,7 +128,6 @@ def delta_swap(routes, k, k1, i, j):
    else: routes[k1].insert(j-1, node) # ne avevo tolto uno prima
    return
 
-@goto
 def local_search(routes, requests, cap, d):
    loads  = np.zeros(len(routes))
    rcosts = np.zeros(len(routes))
@@ -140,30 +138,38 @@ def local_search(routes, requests, cap, d):
          rcosts[k] += d[routes[k][i-1]][routes[k][i]]
    
    cont = 0
-   label.repeat
-   for k in range(len(routes)):
-      for i in range(1,len(routes[k])-1): # elemento da spostare
-         node = routes[k][i]
-         for k1 in range(len(routes)):
-            for j in range(1,len(routes[k1])): # riposiziono prima di j in k1
-               if(k!=k1 or abs(i-j)>0): # se route diverse o nodi diversi stessa route
-                  if(k == k1 or loads[k1]+requests[node] <= cap): # TODO: spostamenti stessa route
-                     cont +=1
-                     if (cont > 1000):
-                        goto.end
-                     delta, deltak, deltak1 = delta_cost(routes, k, k1, i, j, d)
-                     if delta < -0.001:
-                        #print(f"{cont}) scambio {i} - {j} variazione {delta}")
-                        delta_swap(routes, k, k1, i, j)
-                        loads[k]  -= requests[node]
-                        loads[k1] += requests[node]
-                        rcosts[k] += deltak   # deltak è negativo
-                        rcosts[k1]+= deltak1
-                        #print(f"{cont}) scambio {routes[k]}, {routes[k1]}, delta {delta}")
-                        goto.repeat
-               if (j == len(routes[k1])):
-                  print("boh")
-   label.end
+   restart = True
+   while restart:
+      restart = False
+      for k in range(len(routes)):
+         for i in range(1,len(routes[k])-1): # elemento da spostare
+            node = routes[k][i]
+            for k1 in range(len(routes)):
+               for j in range(1,len(routes[k1])): # riposiziono prima di j in k1
+                  if(k!=k1 or abs(i-j)>0): # se route diverse o nodi diversi stessa route
+                     if(k == k1 or loads[k1]+requests[node] <= cap): # TODO: spostamenti stessa route
+                        cont +=1
+                        if (cont > 1000):
+                           return routes
+                        delta, deltak, deltak1 = delta_cost(routes, k, k1, i, j, d)
+                        if delta < -0.001:
+                           #print(f"{cont}) scambio {i} - {j} variazione {delta}")
+                           delta_swap(routes, k, k1, i, j)
+                           loads[k]  -= requests[node]
+                           loads[k1] += requests[node]
+                           rcosts[k] += deltak   # deltak è negativo
+                           rcosts[k1]+= deltak1
+                           #print(f"{cont}) scambio {routes[k]}, {routes[k1]}, delta {delta}")
+                           restart = True
+                           break
+                  if (j == len(routes[k1])):
+                     print("boh")
+               if restart:
+                  break
+            if restart:
+               break
+         if restart:
+            break
    return routes
 
 
