@@ -1,9 +1,15 @@
 import random
+import sys
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from depositi import DISTANZE_DEPOSITI_INDEX, initial_solution
+if __package__ is None or __package__ == "":
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from prove_vecchie_depositi.depositi import DISTANZE_DEPOSITI_INDEX, initial_solution
 
 
 N_TRUCKS = 10
