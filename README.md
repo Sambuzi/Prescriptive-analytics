@@ -12,6 +12,7 @@ Script Python per preparare, ricostruire, visualizzare, prevedere e ottimizzare 
 | `prevedi_ultimi_3_mesi.py` | Prevede gli ultimi tre mesi di ogni serie con Holt-Winters; se il modello fallisce usa una previsione stagionale naive. |
 | `optimization.py` | Ricostruisce i mesi COVID, seleziona un modello SARIMAX per ogni serie, genera forecast e salva le predizioni in `predizioni.csv`. |
 | `depositi.py` | Costruisce una soluzione iniziale per le rotte dei camion a partire dalla matrice delle distanze, dalle predizioni e dalla posizione dei clienti/deposito. |
+| `depositi_ottimizzato.py` | Costruisce e visualizza rotte camion ottimizzate con OR-Tools, confrontandole con la soluzione greedy di `depositi.py`. |
 | `NumeroCamionMilano.py` | Carica la matrice delle distanze, estrae una sottomatrice 20x20, stampa i totali, stima il numero di camion e mostra una heatmap. |
 | `plot_customers_scatter.py` | Legge le coordinate dei clienti e genera uno scatter plot. |
 | `predizioni.csv` | Output prodotto da `optimization.py`, usato da `depositi.py` per calcolare le richieste. |
@@ -30,7 +31,7 @@ Script Python per preparare, ricostruire, visualizzare, prevedere e ottimizzare 
 Prima di eseguire gli script, installare le dipendenze Python:
 
 ```bash
-pip install matplotlib numpy pandas statsmodels
+pip install matplotlib numpy pandas statsmodels ortools
 ```
 
 Oltre a questi pacchetti, il progetto usa solo librerie standard di Python.
@@ -85,3 +86,8 @@ python plot_customers_scatter.py
 python depositi.py
 ```
 
+9. Costruire e visualizzare rotte ottimizzate con OR-Tools:
+
+```bash
+python depositi_ottimizzato.py
+```
