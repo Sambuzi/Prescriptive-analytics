@@ -12,7 +12,10 @@ Script Python per preparare, ricostruire, visualizzare, prevedere e ottimizzare 
 | `prevedi_ultimi_3_mesi.py` | Prevede gli ultimi tre mesi di ogni serie con Holt-Winters; se il modello fallisce usa una previsione stagionale naive. |
 | `optimization.py` | Ricostruisce i mesi COVID, seleziona un modello SARIMAX per ogni serie, genera forecast e salva le predizioni in `predizioni.csv`. |
 | `depositi.py` | Costruisce una soluzione iniziale per le rotte dei camion a partire dalla matrice delle distanze, dalle predizioni e dalla posizione dei clienti/deposito. |
-| `depositi_ottimizzato.py` | Costruisce e visualizza rotte camion ottimizzate con OR-Tools, confrontandole con la soluzione greedy di `depositi.py`. |
+| `depositi_local.py` | Applica una local search alla soluzione iniziale delle rotte e visualizza il risultato su scatter plot. |
+| `depositi_iterated_local.py` | Esegue una Iterated Local Search: perturba soluzioni locali, rilancia la local search e mantiene la migliore rotta trovata. |
+| `depositi_ottimizzato.py` | Costruisce e visualizza rotte camion ottimizzate con ricerca locale e OR-Tools, confrontandole con la soluzione greedy di `depositi.py`. |
+| `goto.py` | Modulo di supporto usato da `depositi_local.py` per la sintassi `goto`/`label`. |
 | `NumeroCamionMilano.py` | Carica la matrice delle distanze, estrae una sottomatrice 20x20, stampa i totali, stima il numero di camion e mostra una heatmap. |
 | `plot_customers_scatter.py` | Legge le coordinate dei clienti e genera uno scatter plot. |
 | `predizioni.csv` | Output prodotto da `optimization.py`, usato da `depositi.py` per calcolare le richieste. |
@@ -86,7 +89,19 @@ python plot_customers_scatter.py
 python depositi.py
 ```
 
-9. Costruire e visualizzare rotte ottimizzate con OR-Tools:
+9. Migliorare le rotte iniziali con local search:
+
+```bash
+python depositi_local.py
+```
+
+10. Migliorare ulteriormente le rotte con Iterated Local Search:
+
+```bash
+python depositi_iterated_local.py
+```
+
+11. Costruire e visualizzare rotte ottimizzate con ricerca locale e OR-Tools:
 
 ```bash
 python depositi_ottimizzato.py
