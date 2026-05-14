@@ -1,108 +1,81 @@
 # Prescriptive Analytics
 
-Script Python per preparare, ricostruire, visualizzare, prevedere e ottimizzare 52 serie temporali legate ai dati COVID. Il progetto include anche strumenti per leggere una matrice delle distanze, visualizzare i clienti, stimare il numero di camion e costruire rotte iniziali da un deposito.
+Progetto Python per combinare previsione della domanda e ottimizzazione di rotte.
 
-## Contenuto Del Progetto
+Il workflow principale parte dalle 52 serie storiche in `fileCSV/serie_covid_new.csv`, ricostruisce i mesi anomali del periodo COVID, genera previsioni con modelli SARIMAX e usa quelle previsioni per costruire e migliorare rotte di consegna da un deposito.
 
-| File | Descrizione |
+## Struttura
+
+| Percorso | Descrizione |
 | --- | --- |
-| `main.py` | Legge il dataset COVID originale, raggruppa le righe per `idserie`, rimuove alcuni mesi del 2020 per i grafici e genera file raggruppati o pivotati. |
-| `ricostruisci_mar_apr_may_2020.py` | Ricostruisce i valori di Feb-Mar-Apr 2020 usando la media degli stessi mesi negli anni di riferimento. |
-| `plot_serie_interattivo.py` | Disegna tutte le serie ricostruite ed evidenzia il periodo ricostruito del 2020. |
-| `prevedi_ultimi_3_mesi.py` | Prevede gli ultimi tre mesi di ogni serie con Holt-Winters; se il modello fallisce usa una previsione stagionale naive. |
-| `optimization.py` | Ricostruisce i mesi COVID, seleziona un modello SARIMAX per ogni serie, genera forecast e salva le predizioni in `predizioni.csv`. |
-| `depositi.py` | Costruisce una soluzione iniziale per le rotte dei camion a partire dalla matrice delle distanze, dalle predizioni e dalla posizione dei clienti/deposito. |
-| `depositi_local.py` | Applica una local search alla soluzione iniziale delle rotte e visualizza il risultato su scatter plot. |
-| `depositi_iterated_local.py` | Esegue una Iterated Local Search: perturba soluzioni locali, rilancia la local search e mantiene la migliore rotta trovata. |
-| `depositi_ottimizzato.py` | Costruisce e visualizza rotte camion ottimizzate con ricerca locale e OR-Tools, confrontandole con la soluzione greedy di `depositi.py`. |
-| `goto.py` | Modulo di supporto usato da `depositi_local.py` per la sintassi `goto`/`label`. |
-| `NumeroCamionMilano.py` | Carica la matrice delle distanze, estrae una sottomatrice 20x20, stampa i totali, stima il numero di camion e mostra una heatmap. |
-| `plot_customers_scatter.py` | Legge le coordinate dei clienti e genera uno scatter plot. |
-| `predizioni.csv` | Output prodotto da `optimization.py`, usato da `depositi.py` per calcolare le richieste. |
-| `fileCSV/serie_covid_new.csv` | Dataset originale delle serie temporali COVID. |
-| `fileCSV/serie_covid_new_per_idserie.csv` | Serie raggruppate per `idserie`. |
-| `fileCSV/serie_covid_new_per_idserie_feb_mar_apr_2020_ricostruiti.csv` | Serie raggruppate con valori Feb-Mar-Apr 2020 ricostruiti. |
-| `fileCSV/previsioni_ultimi_3_mesi_per_serie.csv` | Output delle previsioni sugli ultimi tre mesi per ogni serie. |
-| `fileCSV/previsioni_dicembre_primi_20_diviso_5.csv` | Previsioni di dicembre per le prime 20 serie divise per 5. |
-| `fileCSV/metriche_previsioni_ultimi_3_mesi.csv` | Metriche dell'esperimento di previsione sugli ultimi tre mesi. |
+| `optimization.py` | Ricostruisce Feb-Mar-Apr 2020, seleziona un modello SARIMAX per ogni serie e salva le predizioni in `predizioni.csv`. |
+| `depositi_final.py` | Script principale per costruire una soluzione iniziale, applicare local search e iterated local search, stampare i costi e visualizzare le rotte. |
+| `goto.py` | Modulo locale usato da `depositi_final.py` per la sintassi `goto`. Non e' una dipendenza da installare con `pip`. |
+| `predizioni.csv` | Predizioni usate dagli script di routing. Viene generato da `optimization.py`. |
+| `fileCSV/serie_covid_new.csv` | Dataset originale delle 52 serie temporali. |
 | `fileCSV/mat52.csv` | Matrice delle distanze 52x52. |
-| `fileCSV/customers_scatter.CSV` | Coordinate dei clienti usate per lo scatter plot e per visualizzare le rotte. |
-| `plot_serie_covid/` | Cartella con i grafici generati. |
+| `fileCSV/customers_scatter.CSV` | Coordinate dei clienti e del deposito per gli scatter plot. |
+| `fileCSV/serie_covid_new_per_idserie.csv` | Dataset gia' raggruppato per `idserie`. |
+| `fileCSV/serie_covid_new_per_idserie_feb_mar_apr_2020_ricostruiti.csv` | Serie con valori COVID ricostruiti. |
+| `fileCSV/previsioni_dicembre_primi_20_diviso_5.csv` | Output storico di previsioni su dicembre per le prime 20 serie. |
+| `fileCSV/metriche_previsioni_ultimi_3_mesi.csv` | Metriche di un esperimento precedente sugli ultimi tre mesi. |
+| `plot_serie_covid/` | Grafici generati e salvati. |
+| `prove_vecchie_depositi/` | Versioni precedenti ed esperimenti sulle euristiche di routing. |
 
 ## Requisiti
 
-Prima di eseguire gli script, installare le dipendenze Python:
+Installare le dipendenze Python:
 
 ```bash
 pip install matplotlib numpy pandas statsmodels ortools
 ```
 
-Oltre a questi pacchetti, il progetto usa solo librerie standard di Python.
+Il progetto e' stato eseguito con Python 3.12. OR-Tools serve solo per `prove_vecchie_depositi/depositi_ottimizzato.py`; il workflow principale funziona con `depositi_final.py`.
 
-## Workflow Consigliato
+## Esecuzione
 
-1. Preparare i file raggruppati e i grafici dal dataset originale:
-
-```bash
-python main.py
-```
-
-2. Ricostruire i valori anomali del 2020:
+Eseguire i comandi dalla root del progetto:
 
 ```bash
-python ricostruisci_mar_apr_may_2020.py
+cd "C:\Prescriptive analytics"
 ```
 
-3. Visualizzare tutte le serie ricostruite:
-
-```bash
-python plot_serie_interattivo.py
-```
-
-4. Prevedere gli ultimi tre mesi:
-
-```bash
-python prevedi_ultimi_3_mesi.py
-```
-
-5. Generare le predizioni SARIMAX usate dall'ottimizzazione:
+1. Generare o aggiornare le predizioni:
 
 ```bash
 python optimization.py
 ```
 
-6. Analizzare la matrice delle distanze e la stima dei camion:
+Questo comando legge `fileCSV/serie_covid_new.csv` e riscrive `predizioni.csv`.
+
+2. Calcolare e visualizzare le rotte:
 
 ```bash
-python NumeroCamionMilano.py
+python depositi_final.py
 ```
 
-7. Visualizzare le coordinate dei clienti:
+Lo script legge `fileCSV/mat52.csv`, `fileCSV/customers_scatter.CSV` e `predizioni.csv`, poi mostra:
+
+- soluzione iniziale greedy;
+- soluzione migliorata con local search;
+- soluzione migliorata con iterated local search.
+
+## Script Sperimentali
+
+Gli script in `prove_vecchie_depositi/` sono versioni precedenti o alternative:
+
+| File | Descrizione |
+| --- | --- |
+| `prove_vecchie_depositi/depositi.py` | Costruisce una soluzione iniziale greedy. |
+| `prove_vecchie_depositi/depositi_local.py` | Applica una local search alla soluzione iniziale. |
+| `prove_vecchie_depositi/depositi_iterated_local.py` | Applica iterated local search con perturbazioni. |
+| `prove_vecchie_depositi/depositi_ottimizzato.py` | Confronta soluzione greedy e soluzione ottimizzata con OR-Tools. |
+
+Esempi:
 
 ```bash
-python plot_customers_scatter.py
-```
-
-8. Costruire e visualizzare le rotte iniziali dei camion:
-
-```bash
-python depositi.py
-```
-
-9. Migliorare le rotte iniziali con local search:
-
-```bash
-python depositi_local.py
-```
-
-10. Migliorare ulteriormente le rotte con Iterated Local Search:
-
-```bash
-python depositi_iterated_local.py
-```
-
-11. Costruire e visualizzare rotte ottimizzate con ricerca locale e OR-Tools:
-
-```bash
-python depositi_ottimizzato.py
+python prove_vecchie_depositi/depositi.py
+python prove_vecchie_depositi/depositi_local.py
+python prove_vecchie_depositi/depositi_iterated_local.py
+python prove_vecchie_depositi/depositi_ottimizzato.py
 ```
