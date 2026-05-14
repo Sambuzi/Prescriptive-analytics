@@ -31,6 +31,9 @@ def load_requests(predictions_path, nodes_count, depot):
 
 
 def plot_routes(scatter, routes):
+   max_route_node = max(max(route) for route in routes)
+   scatter = scatter.iloc[:max_route_node + 1].copy()
+
    fig, ax = plt.subplots(figsize=(10, 8))
    depot = scatter.iloc[DISTANZE_DEPOSITI_INDEX]
    customers = scatter.drop(scatter.index[DISTANZE_DEPOSITI_INDEX])
